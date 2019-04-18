@@ -21,7 +21,7 @@ describe("About Functions", function() {
       return message;
     }
     
-    expect(getMessage()).toBe('Inner');
+    expect(getMessage()).toBe('Outer');
     expect(overrideMessage()).toBe('Inner');
     expect(message).toBe('Inner');
   });
