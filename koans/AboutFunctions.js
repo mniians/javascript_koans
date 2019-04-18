@@ -49,7 +49,7 @@ describe("About Functions", function() {
     var increaseBy3 = makeIncreaseByFunction(3);
     var increaseBy5 = makeIncreaseByFunction(5);
     
-    expect(increaseBy3(10) + increaseBy5(10)).toBe(18);
+    expect(increaseBy3(10) + increaseBy5(10)).toBe(28);
   });
 
   it("should allow extra function arguments", function () {
