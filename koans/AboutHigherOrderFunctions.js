@@ -68,7 +68,7 @@ describe("About Higher Order Functions", function () {
     var isEven = function(x) { return x % 2 === 0 };
 
     expect(_(onlyEven).any(isEven)).toBe(true);
-    expect(_(mixedBag).any(isEven)).toBe(false);
+    expect(_(mixedBag).any(isEven)).toBe(true);
   });
 
   it("should use range to generate an array", function() {
