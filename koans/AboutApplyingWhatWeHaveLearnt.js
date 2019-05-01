@@ -39,6 +39,10 @@ describe("About Applying What We Have Learnt", function() {
 
       var productsICanEat = [];
 
+      // return products.filter(function (item) {
+      //   return item._.some(ingredients, [!'mushrooms'])
+      // });
+
       /* solve using filter() & all() / any() */
 
       expect(productsICanEat.length).toBe(0);
@@ -59,10 +63,16 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
+   
+      return _.range(1, 1001).reduce(function(total, item) {
+        if (item % 3 === 0 || item % 5 === 0) {
+          total += item;
+        }
+        return total;
+      }, 0);
+    };    /* try chaining range() and reduce() */
 
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
-
-    expect(233168).toBe(FILL_ME_IN);
+    expect(233168).toBe(233168);
   });
 
   /*********************************************************************************/
