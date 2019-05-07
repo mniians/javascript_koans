@@ -36,16 +36,24 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
+  
+     var productsICanEat = []
+     
 
-      var productsICanEat = [];
+      var pickyEater = function (menu) {
+  
+        productsICanEat = menu.filter(function (element) {
+           return !element.ingredients.includes('mushrooms') && _.some([element.containsNuts === false]);
+         });
+        return productsICanEat;  
+      }
 
-      // return products.filter(function (item) {
-      //   return item._.some(ingredients, [!'mushrooms'])
-      // });
+      pickyEater(products);
+
 
       /* solve using filter() & all() / any() */
 
-      expect(productsICanEat.length).toBe(0);
+      expect(productsICanEat.length).toBe(1);
   });
 
   /*********************************************************************************/
@@ -63,8 +71,8 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
-   
-      return _.range(1, 1001).reduce(function(total, item) {
+   var multipleTest = function (number) {
+       return _.range(1, 1000).reduce(function(total, item) {
         if (item % 3 === 0 || item % 5 === 0) {
           total += item;
         }
@@ -72,7 +80,7 @@ describe("About Applying What We Have Learnt", function() {
       }, 0);
     };    /* try chaining range() and reduce() */
 
-    expect(233168).toBe(233168);
+    expect(multipleTest(233168)).toBe(233168);
   });
 
   /*********************************************************************************/
@@ -90,6 +98,24 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
+
+    var ingredientObj = function (list, target) {
+  let count = 0;
+  list.map(function (element) {
+     _.flatten(element.ingredients).reduce(function (total, item) {  
+      if (item === target) {
+        count += 1;
+        ingredientCount[target] = count;
+      }
+    });
+  });
+  return ingredientCount;
+}
+
+  ingredientObj(products, 'mushrooms');
+
+
+    
 
     /* chain() together map(), flatten() and reduce() */
 
